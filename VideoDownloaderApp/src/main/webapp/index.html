@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VidLoom</title>
+<link rel="icon" href="images/vidloomlogo.png" type="image/x-icon">
+<link rel="shortcut icon" href="images/vidloomlogo.png" type="image/x-icon">
+<style>
+      *{
+      margin: 0;
+      padding: 0;
+      box-sizing:border-box;
+      }
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10%;
+        position: relative;
+    }
+
+    .language-select-header select {
+        padding: 5px;
+        font-size: 0.9em;
+        background-color: #444;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .language-select-header select:focus {
+        outline: none;
+    }
+
+    .logo {
+        height: auto;
+        width: 80px;
+    }
+
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .language-select-header {
+            margin-top: 10px;
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color:#ffffff;
+        margin-top:60px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 30px;
+        word-wrap: break-word;  /* Automatically wrap the text */
+        text-align: center;     /* Ensure it's centered */
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        
+    }
+
+    label {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .input-container {
+        position: relative;
+        width: 100%;
+        display:flex;
+        align-items:center;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        padding-right: 30px; /* Add space for the button */
+        margin-bottom: 20px;
+        border: 5px solid #c147fa;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+
+    .clear-btn {
+        position: absolute;
+        right: 10px; /* Position it at the right end */
+        top: 35%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        font-size: 1.2em;
+        color: #999;
+        cursor: pointer;
+    }
+
+    .clear-btn:hover {
+        color: #007bff;
+    }
+
+    input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        color: #fff;
+        background-color: #c147fa;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #b42cf5;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2em;
+        }
+
+        form {
+            width: 100%;
+            padding: 15px;
+        }
+
+        input[type="text"] {
+            font-size: 0.9em;
+        }
+
+        input[type="submit"] {
+            font-size: 1em;
+        }
+    }
+    
+    .container-2 {
+            display: flex;
+            align-items: center; /* Vertically center content */
+            justify-content:center; /* Push content to edges */
+            padding: 20px;
+            background-color: #ccc;
+            gap:15px;
+            border: 1px solid #ccc; /* Optional for visibility */
+        }
+
+        .text {
+          
+            font-weight: bolder;
+            font-size: 15px;
+            margin-right: 0; /* Add space between text and image */
+        }
+
+        .image {
+            flex-shrink: 0; /* Prevent the image from shrinking */
+        }
+
+        img {
+            height: auto; /* Maintain aspect ratio */
+            width: 500px;
+        }
+    
+    footer {
+        background-color:#ffffff;
+        color: #000000;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 90px;
+        max-width: 1000px;
+    }
+
+    .footer-left {
+        text-align: center;
+    }
+
+    .footer-left h2 {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1.8em;
+        margin: 0;
+        color: #007bff;
+    }
+
+    .footer-left p {
+        margin: 5px 0 0;
+        font-size: 0.9em;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .footer-nav li {
+        margin-bottom: 10px;
+    }
+
+    .footer-nav a {
+        color: #000000;
+        text-decoration: none;
+        font-size: 0.9em;
+    }
+
+    .footer-nav a:hover {
+        text-decoration: underline;
+    }
+   
+   .footer-nav-2 {
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-nav-2 ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .footer-nav-2 li {
+        margin-bottom: 10px;
+    }
+
+    .footer-nav-2 a {
+        color: #000000;
+        text-decoration: none;
+        font-size: 0.9em;
+    }
+
+    .footer-nav-2 a:hover {
+        text-decoration: underline;
+    }
+    .language-select {
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .language-select select {
+        padding: 5px;
+        font-size: 0.9em;
+        background-color: #444;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .language-select select:focus {
+        outline: none;
+    }
+
+    @media (max-width: 768px) {
+        .footer-nav {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-nav ul {
+            text-align: center;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+    <div class="header-container">
+        <img src="images/vidloomlogo.png" alt="VidLoom Logo" class="logo">
+        <div class="language-select-header">
+            <select onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
+    </div>
+    </header>
+    
+    
+    <div class="container">
+        <h1>Weave your favorite videos into your collection</h1>
+        <form action="download" method="post">
+            <div class="input-container">
+                <input type="text" id="videoUrl" name="videoUrl" required placeholder="Paste your video link here">
+                <button type="button" class="clear-btn" onclick="clearInput('videoUrl')">&times;</button>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" id="fileName" name="fileName" required placeholder="Choose your file name">
+                <button type="button" class="clear-btn" onclick="clearInput('fileName')">&times;</button>
+            </div>
+            
+            <input type="submit" value="Download">
+        </form>
+    </div>
+   
+   <section>
+      <h1>How To Use VidLoom</h1>
+      
+      <div class="container-2">
+        <div class="text">
+            <p>1.Paste the URL of the video you want to download </p>
+        </div>
+        <div class="image">
+            <img src="images/ss1.png" alt="ss1" width="150">
+        </div>
+    </div>
+    
+    <div class="container-2">
+        <div class="image">
+            <img src="images/ss2.png" alt="ss1" width="150">
+        </div>
+        <div class="text">
+            <p>2.Give a Suitable File name in Your Choice </p>
+        </div>
+    </div>
+    
+    <div class="container-2">
+        <div class="text">
+            <p>3.Click On button to download your video </p>
+        </div>
+        <div class="image">
+            <img src="images/ss3.png" alt="ss1" width="150">
+        </div>
+    </div>
+      
+   </section>
+   
+    <footer>
+    <div class="footer-content">
+        <!-- Left Side -->
+        <div class="footer-left">
+            <h2>VidLoom</h2>
+            <p>&copy; 2024 VidLoom.All rights reserved.</p>
+        </div>
+
+        <!-- Navigation Links -->
+            <ul class="footer-nav">
+                <li><a href="#home">YouTube</a></li>
+                <li><a href="#features">YouTube to mp4</a></li>
+                <li><a href="#pricing">YouTube shorts</a></li>
+            </ul>
+            <ul class="footer-nav-2">
+                <li><a href="#about">Instagram reels</a></li>
+                <li><a href="#blog">Instagram reels to mp4</a></li>
+            </ul>
+
+        <!-- Language Dropdown -->
+        <div class="language-select">
+            <select onchange="changeLanguage(this.value)">
+                <option value="en" selected>English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Function to clear the content of the input field
+        function clearInput(inputId) {
+            document.getElementById(inputId).value = '';
+        }
+        
+        function changeLanguage(language) {
+            const urls = {
+                en: 'https://example.com/en',
+                fr: 'https://example.com/fr',
+                es: 'https://example.com/es',
+                de: 'https://example.com/de'
+            };
+            window.location.href = urls[language] || urls['en'];
+        }
+    </script>
+</body>
+</html>

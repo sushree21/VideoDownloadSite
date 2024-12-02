@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" version="5.0">
+    <servlet>
+        <servlet-name>VideoDownloaderServlet</servlet-name>
+        <servlet-class>VideoDownloaderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VideoDownloaderServlet</servlet-name>
+        <url-pattern>/download</url-pattern>
+    </servlet-mapping>
+</web-app>
+
+
